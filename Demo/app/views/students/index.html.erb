@@ -1,0 +1,59 @@
+<h1> Listing of students.</h1>
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>college_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student|%>
+    <tr>
+      <td><%= student.id %></td>
+      <td><%= student.name %></td>
+      <td><%= student.college_id %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1> Listing of courses.</h1>
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>college_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @courses.each do |course|%>
+    <tr>
+      <td><%= course.id %></td>
+      <td><%= course.name %></td>
+      <td><%= course.college_id %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<h1> Listing of colleges.</h1>
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @colleges.each do |college|%>
+    <tr>
+      <td><%= college.id %></td>
+      <td><%= college.name %></td>
+      <td><%= college.address %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+

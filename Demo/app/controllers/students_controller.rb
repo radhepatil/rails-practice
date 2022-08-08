@@ -1,24 +1,25 @@
 class StudentsController < ActionController::Base
+
+
   def index
     @students = Student.all
-    @courses = Course.where(name: 'DBMS')
-    @colleges = College.where(name: 'PIEMR')
+    @courses = Course.all
+    @colleges = College.all
   end
 
   def new
     @students = Student.new
   end
 
+  def show
+    @students = Student.find(params[:id])
+  end
+
   def create
-    @students = Student.new(
-      name: params[:student][:name],
-      college_id: params[:student][:college_id]
-      )
+    debugger
+    @students = Student.new(params[:students])
     if @students.save
-      redirect_to students_path
-    else
       render :new
     end
   end
-
 end

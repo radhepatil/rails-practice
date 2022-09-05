@@ -1,0 +1,6 @@
+<tr class="Comm <%= post.id %>">
+    <%= form_for([post,post.comments.build], remote: true) do |f| %>
+        <td><%= f.text_area :content %></td>
+        <td><%= f.submit %></td>
+<% end %>
+</tr>

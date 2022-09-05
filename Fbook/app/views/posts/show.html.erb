@@ -1,0 +1,37 @@
+<div class="container d-flex">
+  <div class="row">
+    <div class="col">
+
+      <% Post.all.each do |post| %>
+
+      <p>
+      <%#= link_to(image_tag(post.image.thumb.url, alt: 'Image'), post.image.url, target: '_blank') if post.image? %>
+      <%#= image_tag blog.image.variant(resize_to_limit: [100, 100]) %>
+    </p>
+  </div>
+  </div>
+</div>
+<div class="card my-5">
+  <div class="card-body">
+    <p id="notice"><%= notice %></p>
+
+    <h1 class="text-center"><%= post.title %></h1>
+    <% if post.image.attached? %>
+     < image src="<%= post.image %>">
+     <% end %>
+    <hr >
+    <div class="my-4">
+      <%= simple_format(post.body) %>
+      <p class="m-1"> <%= "#{time_ago_in_words(post.created_at)} ago" %> </p>
+      <h6><%= pluralize(post.comments.size, "comments") %> |
+      <%= pluralize(post.likes.size, "like") %></h6>
+      <p><%= link_to 'Edit', edit_post_path(post) %> |
+      <%= link_to 'like', edit_post_path(post) %> |
+      <%= link_to 'comment', new_post_comment_path(post) %></p>
+    </div>
+    <%= link_to 'Back', posts_path, class: 'btn btn-primary' %>
+  </div>
+
+
+
+<% end %>

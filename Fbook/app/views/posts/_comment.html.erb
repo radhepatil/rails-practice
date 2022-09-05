@@ -1,0 +1,15 @@
+<% post.comments.each do |comment| %>
+<tr id="comments_<%= comment.id %>">
+<td><p><%= comment.user.email %></p></td>
+<td><p><%= comment.content %></p></td>
+
+<% if current_user == comment.user %>
+<td><%= link_to "Delete Comment", [comment.post, comment], method:
+:delete %></td>
+<td><%= link_to "Edit Comment",
+edit_post_comment_path(comment.post,comment) %></td>
+<% end %>
+</tr>
+<% end %>
+
+<%= render :partial => 'comments/form', :locals => {:post => post} %>
